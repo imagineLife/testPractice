@@ -13,8 +13,17 @@ describe("<App />", () => {
 
   it("should have 1 paragraph", () => {
     const wrapper = shallow(<App />)
+
+    //finds provided selector, <p>
     expect(wrapper.find('p').length).toBe(1)
   })
 
-  
+  it("an app-into classed element should exist", () => {
+    const wrapper = shallow(<App />)
+
+    //finds provided selector, <p>
+    expect(wrapper.find('.App-intro').exists()).toBe(true)
+  })
+
+
 })
