@@ -35,4 +35,28 @@ describe("<App />", () => {
     expect(wrapper.find('ul').hasClass('myClass')).toBe(true)
   })
 
+
+  /*
+	SELECTOR TYPE REVIEW
+  */
+
+  //by element type
+  describe("By Selector Types", () => {
+  	  
+
+  	  it("ELEMENT with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('h1').text()).toBe('Testing Overview')
+	  })
+
+  	  it("CLASS with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('.App-title').text()).toBe('Testing Overview')
+	  })	  
+
+  	  it("ID with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('#h1ID').text()).toBe('Testing Overview')
+	  })
+  })
 })
