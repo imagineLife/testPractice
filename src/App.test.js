@@ -58,5 +58,10 @@ describe("<App />", () => {
 	    const wrapper = shallow(<App />)
 	    expect(wrapper.find('#h1ID').text()).toBe('Testing Overview')
 	  })
+
+	  it("ATTR with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('[alt="dummyAlt"]').text()).toBe('Testing Overview')
+	  })
   })
 })
