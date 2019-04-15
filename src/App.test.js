@@ -63,5 +63,20 @@ describe("<App />", () => {
 	    const wrapper = shallow(<App />)
 	    expect(wrapper.find('[alt="dummyAlt"]').text()).toBe('Testing Overview')
 	  })
+
+	  it("COMBO type && attr with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('h1[alt="dummyAlt"]').text()).toBe('Testing Overview')
+	  })
+
+	  it("COMBO type > attr with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('header > [alt="dummyAlt"]').text()).toBe('Testing Overview')
+	  })
+
+	  it("COMBO parentClass childClass with correct Text", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('.App-header .App-title').text()).toBe('Testing Overview')
+	  })	  
   })
 })
