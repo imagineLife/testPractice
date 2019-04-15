@@ -21,9 +21,15 @@ describe("<App />", () => {
   it("an app-into classed element should exist", () => {
     const wrapper = shallow(<App />)
 
-    //finds provided selector, <p>
+    //checks for existing by class
     expect(wrapper.find('.App-intro').exists()).toBe(true)
   })
 
+  it("has a ul with 3 li's", () => {
+    const wrapper = shallow(<App />)
+
+    //finds provided selector, <p>
+    expect(wrapper.find('ul').children().length).toBe(3)
+  })
 
 })
