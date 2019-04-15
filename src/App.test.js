@@ -11,25 +11,28 @@ describe("<App />", () => {
     const wrapper = shallow(<App />)
   })
 
+  //finds provided selector, <p>
   it("should have 1 paragraph", () => {
     const wrapper = shallow(<App />)
-
-    //finds provided selector, <p>
     expect(wrapper.find('p').length).toBe(1)
   })
 
+  //checks for existing by class
   it("an app-into classed element should exist", () => {
     const wrapper = shallow(<App />)
-
-    //checks for existing by class
     expect(wrapper.find('.App-intro').exists()).toBe(true)
   })
 
+  //finds provided selector, <p>
   it("has a ul with 3 li's", () => {
     const wrapper = shallow(<App />)
-
-    //finds provided selector, <p>
     expect(wrapper.find('ul').children().length).toBe(3)
+  })
+
+  //checks that an item has a class
+  it("has a ul with a class of myClass", () => {
+    const wrapper = shallow(<App />)
+    expect(wrapper.find('ul').hasClass('myClass')).toBe(true)
   })
 
 })
