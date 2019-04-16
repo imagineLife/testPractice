@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> works with SNAPSHOTS matches snapshot 1`] = `
+<Fragment>
+  <header
+    className="App-header"
+  >
+    <h1
+      alt="dummyAlt"
+      className="App-title"
+      id="h1ID"
+    >
+      Testing Overview
+    </h1>
+  </header>
+  <Title
+    text="dummy title"
+  />
+  <ul
+    className="myClass"
+  >
+    <li>
+      List Item 1
+    </li>
+    <li>
+      List Item 2
+    </li>
+    <li>
+      List Item 3
+    </li>
+  </ul>
+  <p
+    className="App-intro"
+  >
+    Mic Check?!
+  </p>
+</Fragment>
+`;
