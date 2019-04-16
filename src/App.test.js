@@ -110,9 +110,10 @@ describe("<App />", () => {
 
       NOTE: when testing,
         snapshots show what changed.
-      UPDATED the snapshot for a passing test using 'u' 
+      UPDATE the snapshot for a passing test using 'u'
         to re-trigger jest
     */
+
     describe("works with SNAPSHOTS", () => {
 
       it('matches snapshot', () => {
@@ -123,10 +124,16 @@ describe("<App />", () => {
 
   })
 
+  /*
+    UNMOUNT mounted components
+    appMounted.unmount();  
+  */
+
   describe('MOUNT rendering', () => { 
       it('matches snapshot', () => {
         const appMounted = mount(<App />)
         expect(toJson(appMounted)).toMatchSnapshot();
+        appMounted.unmount();
       })
   })
 
