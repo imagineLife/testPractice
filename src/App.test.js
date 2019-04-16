@@ -141,6 +141,16 @@ describe("<App />", () => {
 
       })
 
+      it('UPDATES state && child className', () => {
+        const wrapper = shallow(<App />)
+        expect(wrapper.find('.blue').length).toBe(1)
+        expect(wrapper.find('.red').length).toBe(0)
+        wrapper.setState({mainColor: 'red'})
+        expect(wrapper.find('.blue').length).toBe(0)
+        expect(wrapper.find('.red').length).toBe(1)
+
+      })
+
     })
 
   })
