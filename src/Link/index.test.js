@@ -17,6 +17,16 @@ describe('<Link />', () => {
 		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
 	})
 
+	/*
+		using SetProps
+		https://airbnb.io/enzyme/docs/api/ShallowWrapper/setProps.html#setpropsnextprops-callback--self
+		Takes an object, passes as new props to component
+		causes re-render
+		tests how component will behave with changing props
+		calls componentWillRecieveProps on a class component
+		re-renders on this functional component
+	*/
+
 	it('Updates From null to visible on conditional prop change', () => {
 		const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={false}/>)
 		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
