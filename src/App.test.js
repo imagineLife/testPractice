@@ -4,6 +4,7 @@ import App from "./App"
 import { configure, shallow } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 import Title from "./App"
+import toJson from 'enzyme-to-json'
 
 configure({ adapter: new Adapter() })
 
@@ -101,13 +102,13 @@ describe("<App />", () => {
 
   /*
 		Jest snapshot can take a 'snapshot', 
-		& compare against the intended output / LAYOUT etc
+		Keeps a record of the INTENDED OUTPUT
   */
   describe("works with SNAPSHOTS", () => {
 
   	it('matches snapshot', () => {
   		const wrapper = shallow(<App />)
-  		expect(wrapper).toMatchSnapshot()
+  		expect(toJson(wrapper)).toMatchSnapshot()
   	})
   })
 })
