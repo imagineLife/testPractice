@@ -11,4 +11,9 @@ describe('<Link />', () => {
 		const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={true}/>)
 		expect(linkWrapper.find('a[href="www.google.com"]').exists()).toBe(true)
 	})
+
+	it('does not show element when FALSE conditional', () => {
+		const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={false}/>)
+		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
+	})
 })
