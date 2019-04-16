@@ -98,4 +98,16 @@ describe("<App />", () => {
 	  })
   
   })
+
+  /*
+		Jest snapshot can take a 'snapshot', 
+		& compare against the intended output / LAYOUT etc
+  */
+  describe("works with SNAPSHOTS", () => {
+
+  	it('matches snapshot', () => {
+  		const wrapper = shallow(<App />)
+  		expect(wrapper).toMatchSnapshot()
+  	})
+  })
 })
