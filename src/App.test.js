@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import App from "./App"
 import { configure, shallow } from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
+import Title from "./App"
 
 configure({ adapter: new Adapter() })
 
@@ -78,5 +79,23 @@ describe("<App />", () => {
 	    const wrapper = shallow(<App />)
 	    expect(wrapper.find('.App-header .App-title').text()).toBe('Testing Overview')
 	  })	  
+  })
+
+  describe("Get Component name By PROP", () => {
+
+  	it("by 'attr' prop && val ", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find('[text="dummy title"]').text()).toBe("<Title />")
+	  })
+  
+  })
+
+  describe("Matches TEXT by Object prop && val JS obj", () => {
+
+  	it("App ", () => {
+	    const wrapper = shallow(<App />)
+	    expect(wrapper.find({alt: 'dummyAlt'}).text()).toBe('Testing Overview')
+	  })
+  
   })
 })
