@@ -123,14 +123,24 @@ describe("<App />", () => {
     })
 
     describe('interaction', () => {
-      it('cicks button, changes p text', () => {
+
+      it('CLICK button, changes p text', () => {
         const wrapper = shallow(<App />)
         const thisButton = wrapper.find('button')
         expect(wrapper.find('.button-state').text()).toBe('No!')
         thisButton.simulate('click');
         expect(wrapper.find('.button-state').text()).toBe('Yes!')
+      })
+
+      it('CHANGE input value, reflects in H2', () => {
+        const wrapper = shallow(<App />)
+        const thisInput = wrapper.find('input')
+        expect(wrapper.find('h2').text()).toBe('')
+        thisInput.simulate('change', {currentTarget: {value: 'Jake'}})
+        expect(wrapper.find('h2').text()).toBe('Jake')
 
       })
+
     })
 
   })
