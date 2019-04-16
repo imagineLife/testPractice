@@ -17,9 +17,9 @@ describe("<App />", () => {
     })
 
     //finds provided selector, <p>
-    it("should have 1 paragraph", () => {
+    it("should have 2 p tags", () => {
       const wrapper = shallow(<App />)
-      expect(wrapper.find('p').length).toBe(1)
+      expect(wrapper.find('p').length).toBe(2)
     })
 
     //checks for existing by class
@@ -119,6 +119,17 @@ describe("<App />", () => {
       it('matches snapshot', () => {
         const wrapper = shallow(<App />)
         expect(toJson(wrapper)).toMatchSnapshot()
+      })
+    })
+
+    describe('interaction', () => {
+      it('cicks button, changes p text', () => {
+        const wrapper = shallow(<App />)
+        const thisButton = wrapper.find('button')
+        expect(wrapper.find('.button-state').text()).toBe('No!')
+        thisButton.simulate('click');
+        expect(wrapper.find('.button-state').text()).toBe('Yes!')
+
       })
     })
 
