@@ -123,4 +123,11 @@ describe("<App />", () => {
 
   })
 
+  describe('MOUNT rendering', () => { 
+      it('matches snapshot', () => {
+        const appMounted = mount(<App />)
+        expect(toJson(appMounted)).toMatchSnapshot();
+      })
+  })
+
 })
