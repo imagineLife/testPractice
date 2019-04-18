@@ -8,9 +8,17 @@ export default class ClassComponent extends React.Component{
 		}
 	}
 
+	makeString(str){
+		return true;
+	}
+
 	componentDidMount(){
 		console.log('CDM HERE!');
 		this.setState({someText: 'someTextHere!'})
+	}
+
+	componentWillReceiveProps(){
+		this.setState({lifeCycle: 'compWillRecProps'})
 	}
 
 	render(){

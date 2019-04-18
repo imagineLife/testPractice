@@ -17,5 +17,29 @@ describe('ClassComponent', () => {
       const component = shallow(<ClassComponent/>)
       expect(ClassComponent.prototype.componentDidMount.mock.calls.length).toBe(1)
     })
+
+    it('handles ComponentWillReceiveProps, settingState', () => {
+
+      //
+      jest.spyOn(ClassComponent.prototype, 'componentWillReceiveProps')
+      
+      const component = shallow(<ClassComponent/>)
+      component.setProps({hide:true})
+      expect(ClassComponent.prototype.componentWillReceiveProps.mock.calls.length).toBe(1)
+    })
+  })
+
+  describe('Custom Methods', () => {
+    it('CONTAINS makeString', () => {
+      const comp = shallow(<ClassComponent />)
+      let methodCheck = comp.instance().makeString('customString')
+      expect(methodCheck).toBe(true)
+    })
+
+    // it('CONTAINS makeString', () => {
+    //   const comp = shallow(<ClassComponent />)
+    //   methodCheck = comp.instance().makeString('customString')
+    //   expect(methodCheck).toBe(true)
+    // })
   })
 })
