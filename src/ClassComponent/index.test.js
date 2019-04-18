@@ -36,10 +36,10 @@ describe('ClassComponent', () => {
       expect(methodCheck).toBe(true)
     })
 
-    // it('CONTAINS makeString', () => {
-    //   const comp = shallow(<ClassComponent />)
-    //   methodCheck = comp.instance().makeString('customString')
-    //   expect(methodCheck).toBe(true)
-    // })
+    it('TESTS for string content in makeString', () => {
+      const comp = shallow(<ClassComponent />)
+      let methodCheck = comp.instance().makeString('')
+      expect(methodCheck).toBe(false)
+    })
   })
 })

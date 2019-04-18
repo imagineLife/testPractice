@@ -9,11 +9,14 @@ export default class ClassComponent extends React.Component{
 	}
 
 	makeString(str){
-		return true;
+		if(str.length > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	componentDidMount(){
-		console.log('CDM HERE!');
 		this.setState({someText: 'someTextHere!'})
 	}
 
