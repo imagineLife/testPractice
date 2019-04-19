@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title/';
 import Link from './Link';
+import ClassComponent from './ClassComponent'
 import './main.css';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
         <p className="App-intro">
           Mic Check?!
         </p>
+        <ClassComponent />
         <p className='button-state'>{this.state.on ? 'Yes!' : 'No!'}</p>
         <button onClick={() => this.setState({on: !this.state.on})}>Click</button>
         <input onChange={(e) => this.setState({input: e.currentTarget.value})} type='text' />
