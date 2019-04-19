@@ -26,20 +26,22 @@ describe('<Link />', () => {
 		calls componentWillRecieveProps on a class component
 		re-renders on this functional component
 	*/
+	describe('handles conditional render prop-driven updates', () => {
+		it('Updates From null to visible', () => {
+			const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={false}/>)
+			expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
 
-	it('Updates From null to visible on conditional prop change', () => {
-		const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={false}/>)
-		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
+			linkWrapper.setProps({tOrF: true})
+			expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(1)
+		})
 
-		linkWrapper.setProps({tOrF: true})
-		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(1)
+		it('Updates From visible to null', () => {
+			const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={true}/>)
+			expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(1)
+
+			linkWrapper.setProps({tOrF: false})
+			expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
+		})
 	})
 
-	it('Updates From visible to null on conditional prop change', () => {
-		const linkWrapper = shallow(<Link address={'www.google.com'} tOrF={true}/>)
-		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(1)
-
-		linkWrapper.setProps({tOrF: false})
-		expect(linkWrapper.find('a[href="www.google.com"]').length).toBe(0)
-	})
 })
