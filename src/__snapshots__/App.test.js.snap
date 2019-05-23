@@ -1,6 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> works with SNAPSHOTS matches snapshot 1`] = `
+exports[`<App /> MOUNT rendering matches snapshot 1`] = `
+<App>
+  <header
+    className="App-header"
+  >
+    <h1
+      alt="dummyAlt"
+      className="App-title"
+      id="h1ID"
+    >
+      Testing Overview
+    </h1>
+  </header>
+  <Title
+    text="dummy title"
+  >
+    <div
+      className="titleClass"
+    >
+      dummy title
+    </div>
+  </Title>
+  <h3
+    className="blue"
+  >
+    Everyone is Welcome!
+  </h3>
+  <Link
+    address="dummyLinkText"
+    tOrF={true}
+  >
+    <a
+      href="dummyLinkText"
+    >
+      Click
+    </a>
+  </Link>
+  <ul
+    className="myClass"
+  >
+    <li>
+      List Item 1
+    </li>
+    <li>
+      List Item 2
+    </li>
+    <li>
+      List Item 3
+    </li>
+  </ul>
+  <p
+    className="App-intro"
+  >
+    Mic Check?!
+  </p>
+  <ClassComponent>
+    <p>
+      someTextHere!
+    </p>
+  </ClassComponent>
+  <p
+    className="button-state"
+  >
+    No!
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Click
+  </button>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <h2 />
+</App>
+`;
+
+exports[`<App /> shallow rendering works with SNAPSHOTS matches snapshot 1`] = `
 <Fragment>
   <header
     className="App-header"
@@ -15,6 +93,15 @@ exports[`<App /> works with SNAPSHOTS matches snapshot 1`] = `
   </header>
   <Title
     text="dummy title"
+  />
+  <h3
+    className="blue"
+  >
+    Everyone is Welcome!
+  </h3>
+  <Link
+    address="dummyLinkText"
+    tOrF={true}
   />
   <ul
     className="myClass"
@@ -34,5 +121,21 @@ exports[`<App /> works with SNAPSHOTS matches snapshot 1`] = `
   >
     Mic Check?!
   </p>
+  <ClassComponent />
+  <p
+    className="button-state"
+  >
+    No!
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Click
+  </button>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <h2 />
 </Fragment>
 `;

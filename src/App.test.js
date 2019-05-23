@@ -2,11 +2,8 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import { configure, shallow, mount } from "enzyme"
-import Adapter from "enzyme-adapter-react-16"
 import Title from "./Title"
 import toJson from 'enzyme-to-json'
-
-configure({ adapter: new Adapter() })
 
 describe("<App />", () => {
 
@@ -122,13 +119,22 @@ describe("<App />", () => {
       })
     })
 
+    /*
+      INTERACTION
+    */
     describe('interaction', () => {
 
       it('CLICK button, changes p text', () => {
+
+        //setup
         const wrapper = shallow(<App />)
         const thisButton = wrapper.find('button')
         expect(wrapper.find('.button-state').text()).toBe('No!')
+        
+        //perform action
         thisButton.simulate('click');
+
+        //test
         expect(wrapper.find('.button-state').text()).toBe('Yes!')
       })
 
